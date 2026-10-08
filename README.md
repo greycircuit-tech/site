@@ -1,4 +1,3 @@
-Absolutely. Here are the two files separately, ready to paste into GitHub.
 # Grey Circuit Technologies
 
 Official website repository of **GREYCIRCUIT TECHNOLOGIES PRIVATE LIMITED (GCT)**.
