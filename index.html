@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-black text-white antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grey Circuit Technologies | Cybersecurity, Automation & Software Engineering</title>
+    <meta name="description" content="Grey Circuit Technologies helps businesses secure systems, automate operations, and build custom software through cybersecurity, automation, and software engineering.">
+    <link rel="canonical" href="https://greycircuit.tech/">
+    <meta property="og:title" content="Grey Circuit Technologies | Cybersecurity, Automation & Software Engineering">
+    <meta property="og:description" content="Secure systems, automate operations, and build software with Grey Circuit Technologies.">
+    <meta property="og:url" content="https://greycircuit.tech/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Grey Circuit Technologies">
+    <meta property="og:image" content="https://greycircuit.tech/assets/logo_transparent.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Grey Circuit Technologies | Cybersecurity, Automation & Software Engineering">
+    <meta name="twitter:description" content="Secure systems, automate operations, and build software with Grey Circuit Technologies.">
+    <meta name="twitter:image" content="https://greycircuit.tech/assets/logo_transparent.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://greycircuit.tech/#organization",
+          "name": "GREYCIRCUIT TECHNOLOGIES PRIVATE LIMITED",
+          "brand": { "@type": "Brand", "name": "Grey Circuit Technologies" },
+          "url": "https://greycircuit.tech/",
+          "email": "contact@greycircuit.tech"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://greycircuit.tech/#website",
+          "url": "https://greycircuit.tech/",
+          "name": "Grey Circuit Technologies",
+          "publisher": { "@id": "https://greycircuit.tech/#organization" }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Fonts: Inter for UI, Space Grotesk for cinematic/technical headers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        grey: {
+                            100: '#f5f5f5',
+                            200: '#e5e5e5',
+                            300: '#d4d4d4',
+                            400: '#a3a3a3',
+                            500: '#737373',
+                            600: '#525252',
+                            700: '#404040',
+                            800: '#262626',
+                            900: '#171717',
+                            950: '#0a0a0a',
+                        }
+                    },
+                    letterSpacing: {
+                        tighter: '-.04em',
+                        widest: '.25em',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base & Lenis Smooth Scroll */
+        html.lenis, html.lenis body {
+            height: auto;
+            width: 100vw;
+            overflow-x: hidden;
+        }
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
+        }
+        
+        /* Hide scrollbar for clean aesthetic */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+
+        /* Noise Overlay */
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Glassmorphism & UI Utilities */
+        .glass-panel {
+            background: rgba(10, 10, 10, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .text-outline {
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(196, 181, 253, 0.78);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(255,255,255,0.3);
+        }
+        
+        /* Canvas Background */
+        #cinematic-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            z-index: -1;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        /* Reveal Masks */
+        .reveal-mask {
+            clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+        }
+        
+        /* Circuit Line Methodology */
+        .circuit-node {
+            transition: all 0.5s ease;
+        }
+        .circuit-node.active {
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(255,255,255,0.8);
+            border-color: #fff;
+        }
+    </style>
+</head>
+<body class="selection:bg-white selection:text-black font-sans">
+    <div class="noise-overlay"></div>
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+    <!-- Existing template background retained; hero image/video removed. -->
+
+    <!-- Navigation -->
+    <nav class="dynamic-island" id="site-nav" aria-label="Primary navigation">
+  <div class="island-shell">
+    <a href="/" class="island-brand" aria-label="Grey Circuit Technologies home">
+    <img src="assets/logo_transparent.png" alt="" aria-hidden="true" decoding="async">
+      <span>GREY CIRCUIT</span>
+    </a>
+    <div class="island-divider" aria-hidden="true"></div>
+
+    <a href="/#about" class="island-link magnetic" data-magnetic>About</a>
+
+    <div class="nav-dropdown">
+      <button type="button" class="island-link nav-dropdown-trigger magnetic" data-magnetic
+              aria-expanded="false" aria-haspopup="true">
+        Services <span class="nav-chevron" aria-hidden="true">+</span>
+      </button>
+      <div class="nav-dropdown-menu" role="menu">
+        <a href="/services/cybersecurity-service/cybersecurity.html" role="menuitem">Cybersecurity</a>
+        <a href="/services/automation-service/automation.html" role="menuitem">Automation</a>
+        <a href="/services/swe-service/software-engineering.html" role="menuitem">Software Engineering</a>
+      </div>
+    </div>
+    <a href="/projects/project.html" class="island-link magnetic" data-magnetic>Projects</a>
+
+        <a href="/#industries" class="island-link magnetic" data-magnetic>Industries</a>
+
+    <a href="/#insights" class="island-link magnetic" data-magnetic>Insights</a>
+    <a href="/#contact" class="island-contact magnetic" data-magnetic>Contact</a>
+  </div>
+</nav>
+
+    <main>
+        <!-- HERO -->
+        <section id="hero" class="h-screen w-full flex flex-col justify-center items-center relative px-6">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black pointer-events-none"></div>
+            <div class="hero-content text-center z-10 flex flex-col items-center max-w-6xl">
+                <div class="hero-label font-mono text-grey-500 text-xs tracking-[0.3em] uppercase mb-6 overflow-hidden">
+                    <span class="inline-block transform translate-y-full rev-up">Cybersecurity / Automation / Software Engineering</span>
+                </div>
+                <h1 class="hero-title font-display text-5xl md:text-7xl lg:text-9xl font-semibold tracking-tighter leading-[0.9] text-white">
+                    <div class="overflow-hidden"><span class="inline-block transform translate-y-full rev-up">BUILD.</span></div>
+                    <div class="overflow-hidden"><span class="inline-block transform translate-y-full rev-up text-grey-300">SECURE.</span></div>
+                    <div class="overflow-hidden"><span class="inline-block transform translate-y-full rev-up">AUTOMATE.</span></div>
+                </h1>
+                <p class="hero-desc mt-8 max-w-2xl text-grey-400 font-sans text-sm md:text-base leading-relaxed opacity-0">
+                    Grey Circuit Technologies helps businesses secure systems, automate operations, and build software tailored to how they work.
+                </p>
+                <div class="hero-actions mt-8 flex flex-wrap justify-center gap-3 opacity-0">
+                    <a href="#services" class="glass-panel px-7 py-4 rounded-full text-xs font-mono uppercase tracking-widest hover:bg-white hover:text-black transition-all magnetic" data-magnetic>View Capabilities</a>
+                    <a href="#contact" class="px-7 py-4 rounded-full border border-white/15 text-xs font-mono uppercase tracking-widest hover:border-white/50 transition-all magnetic" data-magnetic>Start a Conversation</a>
+                </div>
+            </div>
+
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-50 scroll-indicator">
+                <span class="font-mono text-[10px] tracking-widest uppercase">Scroll to engage</span>
+                <div class="w-[1px] h-16 bg-white/20 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1/2 bg-white scroll-line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT: intentionally kept on index -->
+        <section id="about" class="min-h-screen w-full relative z-10 bg-black py-32 px-6 md:px-12 lg:px-24 flex items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 w-full max-w-7xl mx-auto">
+                <div class="lg:col-span-5">
+                    <h2 class="section-index text-outline font-display text-6xl md:text-8xl tracking-tighter font-bold uppercase mb-4">01</h2>
+                    <p class="section-kicker font-mono text-[10px] tracking-[0.25em] text-grey-500 uppercase mb-5">About Grey Circuit</p>
+                    <h3 class="font-display text-2xl md:text-4xl font-light">Technology for what comes next.</h3>
+                </div>
+                <div class="lg:col-span-7 flex flex-col justify-center">
+                    <p class="text-xl md:text-3xl font-light leading-snug text-grey-300 mb-12 about-text">
+                        Grey Circuit Technologies is a technology engineering company delivering cybersecurity, automation and software engineering. We help startups, growing businesses, enterprises and technology teams solve practical problems with systems that are secure, useful and built for their operating environment.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 font-mono text-sm text-grey-400">
+                        <div class="about-item">
+                            <h4 class="text-white mb-2 uppercase tracking-wider text-xs">Engineering over noise</h4>
+                            <p class="text-xs leading-relaxed">Build practical solutions instead of adding unnecessary complexity.</p>
+                        </div>
+                        <div class="about-item">
+                            <h4 class="text-white mb-2 uppercase tracking-wider text-xs">Security by design</h4>
+                            <p class="text-xs leading-relaxed">Treat security as part of engineering, not an afterthought.</p>
+                        </div>
+                        <div class="about-item">
+                            <h4 class="text-white mb-2 uppercase tracking-wider text-xs">Automate what should not be manual</h4>
+                            <p class="text-xs leading-relaxed">Turn repeated work into dependable, repeatable workflows where practical.</p>
+                        </div>
+                        <div class="about-item">
+                            <h4 class="text-white mb-2 uppercase tracking-wider text-xs">Use AI responsibly</h4>
+                            <p class="text-xs leading-relaxed">Improve capability while maintaining human oversight, security and quality.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOUNDER -->
+        <section id="founder" class="founder-section py-32 px-6 md:px-12 lg:px-24 bg-[#050505] relative z-10">
+            <div class="max-w-7xl mx-auto founder-grid">
+                <div>
+                    <h2 class="section-index text-outline font-display text-6xl md:text-8xl tracking-tighter font-bold uppercase mb-4">02</h2>
+                    <p class="section-kicker font-mono text-[10px] tracking-[0.25em] text-grey-500 uppercase mb-5">About the founder</p>
+                    <h3 class="font-display text-3xl md:text-5xl font-light">AJOY A G</h3>
+                    <p class="founder-tags font-mono text-xs md:text-sm text-grey-400 uppercase tracking-widest mt-4">Cybersecurity | Automation | Software Engineering</p>
+                    <p class="founder-bio font-sans font-light text-grey-400 text-sm md:text-base leading-relaxed mt-6 max-w-xl">Ajoy A G founded Grey Circuit Technologies to engineer practical solutions across cybersecurity, automation and software engineering. His work focuses on securing systems, automating operations and building software around real-world problems.</p>
+                    <div class="founder-links mt-10 flex flex-wrap gap-3">
+                        <a href="https://www.linkedin.com/in/ajoyag/" target="_blank" rel="noopener noreferrer" class="founder-link">LinkedIn ↗</a>
+                        <a href="https://www.ajoyag.in" target="_blank" rel="noopener noreferrer" class="founder-link">ajoyag.in ↗</a>
+                    </div>
+                </div>
+                <div class="founder-portrait-wrap">
+                    <img src="assets/profile.avif" alt="Ajoy Ag" class="founder-portrait" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services" class="py-32 px-6 md:px-12 lg:px-24 bg-[#050505] relative z-10">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex justify-between items-end mb-16 border-b border-white/10 pb-8">
+                    <div>
+                        <div class="section-marker"><span class="section-index">03</span><span class="section-kicker">Core Capabilities</span></div>
+                        <h2 class="font-display text-4xl md:text-6xl font-medium tracking-tight">Technology & Services</h2>
+                    </div>
+                    <span class="hidden md:block font-mono text-[10px] text-grey-600 uppercase tracking-widest">01 — 03</span>
+                </div>
+
+                <div class="services-carousel grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <a href="/services/cybersecurity-service/cybersecurity.html" class="practice-card card-cybersecurity glass-panel p-8 rounded-2xl relative overflow-hidden group cursor-none block">
+                        <div class="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center mb-12 group-hover:bg-white transition-colors duration-300"><span class="font-mono text-xs group-hover:text-black">01</span></div>
+                        <div class="relative z-10"><h3 class="font-display text-xl mb-4 text-white">Cybersecurity</h3><p class="font-mono text-xs text-grey-500 leading-relaxed">Test systems like an attacker, prioritize meaningful risk, and engineer practical remediation.</p></div>
+                        <span class="absolute right-8 bottom-8 font-mono text-[10px] text-grey-500 uppercase tracking-widest">Discuss security →</span>
+                    </a>
+
+                    <a href="/services/automation-service/automation.html" class="practice-card card-automation glass-panel p-8 rounded-2xl relative overflow-hidden group cursor-none block">
+                        <div class="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center mb-12 group-hover:bg-white transition-colors duration-300"><span class="font-mono text-xs group-hover:text-black">02</span></div>
+                        <div class="relative z-10"><h3 class="font-display text-xl mb-4 text-white">Automation</h3><p class="font-mono text-xs text-grey-500 leading-relaxed">Connect systems and reduce repetitive work with workflows, integrations and operational tooling.</p></div>
+                        <span class="absolute right-8 bottom-8 font-mono text-[10px] text-grey-500 uppercase tracking-widest">Discuss automation →</span>
+                    </a>
+
+                    <a href="/services/swe-service/software-engineering.html" class="practice-card card-software-engineering glass-panel p-8 rounded-2xl relative overflow-hidden group cursor-none block">
+                        <div class="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center mb-12 group-hover:bg-white transition-colors duration-300"><span class="font-mono text-xs group-hover:text-black">03</span></div>
+                        <div class="relative z-10"><h3 class="font-display text-xl mb-4 text-white">Software Engineering</h3><p class="font-mono text-xs text-grey-500 leading-relaxed">Build internal tools, web applications, APIs, dashboards and AI-enabled products around real requirements.</p></div>
+                        <span class="absolute right-8 bottom-8 font-mono text-[10px] text-grey-500 uppercase tracking-widest">Discuss software →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SELECTED PROJECTS -->
+        <section id="projects" class="py-32 px-6 md:px-12 lg:px-24 bg-[#050505] relative z-10">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex justify-between items-end mb-16 border-b border-white/10 pb-8">
+                    <div>
+                        <div class="section-marker"><span class="section-index">04</span><span class="section-kicker">Selected Projects</span></div>
+                        <h2 class="font-display text-4xl md:text-6xl font-medium tracking-tight">Engineered outcomes.</h2>
+                    </div>
+                    <a href="/projects/project.html" class="hidden md:inline font-mono text-[10px] text-grey-500 uppercase tracking-widest hover:text-white transition">View all projects →</a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <article class="project-preview-card glass-panel p-8 rounded-2xl">
+                        <span class="font-mono text-[10px] text-grey-600">PROJECT PLACEHOLDER</span>
+                        <h3 class="font-display text-2xl mt-16 mb-4">Production Intelligence Platform</h3>
+                        <p class="text-sm leading-relaxed text-grey-500">Placeholder for a publicly showcaseable production workflow and operational visibility project.</p>
+                    </article>
+                    <article class="project-preview-card glass-panel p-8 rounded-2xl">
+                        <span class="font-mono text-[10px] text-grey-600">PROJECT PLACEHOLDER</span>
+                        <h3 class="font-display text-2xl mt-16 mb-4">Security Assessment Platform</h3>
+                        <p class="text-sm leading-relaxed text-grey-500">Placeholder for a public security engineering project description.</p>
+                    </article>
+                    <article class="project-preview-card glass-panel p-8 rounded-2xl">
+                        <span class="font-mono text-[10px] text-grey-600">PROJECT PLACEHOLDER</span>
+                        <h3 class="font-display text-2xl mt-16 mb-4">AI Workflow Studio</h3>
+                        <p class="text-sm leading-relaxed text-grey-500">Placeholder for a public AI-enabled workflow project description.</p>
+                    </article>
+                </div>
+                <a href="/projects/project.html" class="project-preview-cta mt-10">View all projects <span>→</span></a>
+            </div>
+        </section>
+
+        <!-- INDUSTRIES -->
+        <section id="industries" class="py-32 bg-[#090909] text-white relative z-10">
+            <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
+                    <div class="lg:col-span-4">
+                        <div class="section-marker"><span class="section-index">04</span><span class="section-kicker">Where We Apply Technology</span></div>
+                        <h2 class="font-display text-5xl md:text-7xl tracking-tighter font-semibold leading-[.9]">Built around the business.</h2>
+                    </div>
+                    <div class="lg:col-span-8">
+                        <p class="text-xl md:text-2xl leading-relaxed text-grey-400 max-w-3xl mb-12">We work across organizations with different technology environments, operating models and levels of maturity. The engagement starts with the problem, not a predetermined industry template.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 border-t border-white/10">
+                            <div class="py-7 pr-8 border-b border-white/10"><span class="font-mono text-[10px] tracking-widest text-grey-500">01</span><h3 class="font-display text-2xl mt-4">Technology & SaaS</h3><p class="text-sm text-grey-500 mt-3 leading-relaxed">Products, platforms and engineering organizations operating at digital scale.</p></div>
+                            <div class="py-7 md:pl-8 border-b border-white/10 md:border-l"><span class="font-mono text-[10px] tracking-widest text-grey-500">02</span><h3 class="font-display text-2xl mt-4">Startups & Growth Businesses</h3><p class="text-sm text-grey-500 mt-3 leading-relaxed">Teams building technology capabilities while balancing speed, cost and resilience.</p></div>
+                            <div class="py-7 pr-8 border-b border-white/10"><span class="font-mono text-[10px] tracking-widest text-grey-500">03</span><h3 class="font-display text-2xl mt-4">Digital Businesses</h3><p class="text-sm text-grey-500 mt-3 leading-relaxed">Organizations where technology is central to products, operations or customer experience.</p></div>
+                            <div class="py-7 md:pl-8 border-b border-white/10 md:border-l"><span class="font-mono text-[10px] tracking-widest text-grey-500">04</span><h3 class="font-display text-2xl mt-4">Organizations Adopting AI</h3><p class="text-sm text-grey-500 mt-3 leading-relaxed">Teams evaluating AI, automation and new operating models while managing practical risks.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- APPROACH -->
+        <section id="approach" class="py-32 bg-black relative z-10 overflow-hidden">
+            <div class="max-w-4xl mx-auto px-6 md:px-12 relative">
+                <div class="text-center mb-24">
+                        <div class="section-marker execution-marker"><span class="section-index">05</span><span class="section-kicker">Execution Model</span></div>
+                    <h2 class="font-display text-4xl md:text-5xl font-medium tracking-tight text-white">How Grey Circuit Works</h2>
+                    <p class="text-grey-500 mt-5 max-w-xl mx-auto">Understand the environment, engineer the right solution, and improve it as requirements evolve.</p>
+                </div>
+
+                <div class="absolute top-48 bottom-0 left-[24px] md:left-1/2 md:-ml-[1px] w-[2px] bg-white/10" id="circuit-path-bg">
+                    <div class="w-full bg-white h-0" id="circuit-path-fill"></div>
+                </div>
+
+                <div class="space-y-24 relative z-10">
+                    <div class="meth-step flex flex-col md:flex-row items-start md:items-center justify-between group pl-12 md:pl-0">
+                        <div class="md:w-5/12 text-left md:text-right order-2 md:order-1 mt-2 md:mt-0 opacity-20 transition-opacity duration-500 step-content"><h3 class="font-display text-2xl font-semibold mb-2 text-white">Understand</h3><p class="font-sans text-sm text-grey-400">Understand objectives, constraints, technology environment and the problem that needs solving.</p></div>
+                        <div class="absolute left-0 md:static md:w-2/12 flex justify-center order-1 md:order-2"><div class="w-12 h-12 rounded-full border-2 border-white/20 bg-black flex items-center justify-center circuit-node z-10 font-mono text-xs step-num">01</div></div>
+                        <div class="hidden md:block md:w-5/12 order-3"></div>
+                    </div>
+                    <div class="meth-step flex flex-col md:flex-row items-start md:items-center justify-between group pl-12 md:pl-0">
+                        <div class="hidden md:block md:w-5/12 order-1"></div>
+                        <div class="absolute left-0 md:static md:w-2/12 flex justify-center order-1 md:order-2"><div class="w-12 h-12 rounded-full border-2 border-white/20 bg-black flex items-center justify-center circuit-node z-10 font-mono text-xs step-num">02</div></div>
+                        <div class="md:w-5/12 text-left order-2 md:order-3 mt-2 md:mt-0 opacity-20 transition-opacity duration-500 step-content"><h3 class="font-display text-2xl font-semibold mb-2 text-white">Assess</h3><p class="font-sans text-sm text-grey-400">Assess current technology, processes, opportunities, dependencies and relevant risks.</p></div>
+                    </div>
+                    <div class="meth-step flex flex-col md:flex-row items-start md:items-center justify-between group pl-12 md:pl-0">
+                        <div class="md:w-5/12 text-left md:text-right order-2 md:order-1 mt-2 md:mt-0 opacity-20 transition-opacity duration-500 step-content"><h3 class="font-display text-2xl font-semibold mb-2 text-white">Engineer</h3><p class="font-sans text-sm text-grey-400">Design and build the appropriate application, workflow, security improvement or technical solution.</p></div>
+                        <div class="absolute left-0 md:static md:w-2/12 flex justify-center order-1 md:order-2"><div class="w-12 h-12 rounded-full border-2 border-white/20 bg-black flex items-center justify-center circuit-node z-10 font-mono text-xs step-num">03</div></div>
+                        <div class="hidden md:block md:w-5/12 order-3"></div>
+                    </div>
+                    <div class="meth-step flex flex-col md:flex-row items-start md:items-center justify-between group pl-12 md:pl-0">
+                        <div class="hidden md:block md:w-5/12 order-1"></div>
+                        <div class="absolute left-0 md:static md:w-2/12 flex justify-center order-1 md:order-2"><div class="w-12 h-12 rounded-full border-2 border-white/20 bg-black flex items-center justify-center circuit-node z-10 font-mono text-xs step-num">04</div></div>
+                        <div class="md:w-5/12 text-left order-2 md:order-3 mt-2 md:mt-0 opacity-20 transition-opacity duration-500 step-content"><h3 class="font-display text-2xl font-semibold mb-2 text-white">Validate</h3><p class="font-sans text-sm text-grey-400">Test the result against functional, operational and security requirements before it is relied upon.</p></div>
+                    </div>
+                    <div class="meth-step flex flex-col md:flex-row items-start md:items-center justify-between group pl-12 md:pl-0">
+                        <div class="md:w-5/12 text-left md:text-right order-2 md:order-1 mt-2 md:mt-0 opacity-20 transition-opacity duration-500 step-content"><h3 class="font-display text-2xl font-semibold mb-2 text-white">Secure by design</h3><p class="font-sans text-sm text-grey-400">Consider security, reliability, privacy and operational resilience throughout the technology lifecycle.</p></div>
+                        <div class="absolute left-0 md:static md:w-2/12 flex justify-center order-1 md:order-2"><div class="w-12 h-12 rounded-full border-2 border-white/20 bg-black flex items-center justify-center circuit-node z-10 font-mono text-xs step-num">05</div></div>
+                        <div class="hidden md:block md:w-5/12 order-3"></div>
+                    </div>
+                    <div class="meth-step flex flex-col md:flex-row items-start md:items-center justify-between group pl-12 md:pl-0">
+                        <div class="hidden md:block md:w-5/12 order-1"></div>
+                        <div class="absolute left-0 md:static md:w-2/12 flex justify-center order-1 md:order-2"><div class="w-12 h-12 rounded-full border-2 border-white/20 bg-black flex items-center justify-center circuit-node z-10 font-mono text-xs step-num">06</div></div>
+                        <div class="md:w-5/12 text-left order-2 md:order-3 mt-2 md:mt-0 opacity-20 transition-opacity duration-500 step-content"><h3 class="font-display text-2xl font-semibold mb-2 text-white">Automate</h3><p class="font-sans text-sm text-grey-400">Remove repetitive work with workflow automation, software and intelligent systems where appropriate.</p></div>
+                    </div>
+                    <div class="meth-step flex flex-col md:flex-row items-start md:items-center justify-between group pl-12 md:pl-0">
+                        <div class="md:w-5/12 text-left md:text-right order-2 md:order-1 mt-2 md:mt-0 opacity-20 transition-opacity duration-500 step-content"><h3 class="font-display text-2xl font-semibold mb-2 text-white">Improve</h3><p class="font-sans text-sm text-grey-400">Measure outcomes, learn from the system and continuously improve the solution.</p></div>
+                        <div class="absolute left-0 md:static md:w-2/12 flex justify-center order-1 md:order-2"><div class="w-12 h-12 rounded-full border-2 border-white/20 bg-black flex items-center justify-center circuit-node z-10 font-mono text-xs step-num">07</div></div>
+                        <div class="hidden md:block md:w-5/12 order-3"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHITEPAPER -->
+        <section id="whitepaper" class="whitepaper-section py-32 px-6 md:px-12 lg:px-24 bg-[#050505] text-white relative z-10">
+            <div class="max-w-7xl mx-auto whitepaper-grid">
+                <div>
+                    <div class="section-marker"><span class="section-index">06</span><span class="section-kicker">Whitepaper</span></div>
+                    <h2 class="font-display text-4xl md:text-6xl font-medium tracking-tight">Technology for what comes next.</h2>
+                </div>
+                <div>
+                    <p class="text-grey-400 text-base md:text-lg leading-relaxed max-w-2xl">Research at the intersection of cybersecurity, AI, automation and software engineering for teams building the next system.</p>
+                    <a href="whitepaper.html" download class="whitepaper-download magnetic" data-magnetic aria-label="Download the Grey Circuit whitepaper">
+                        <span aria-hidden="true">↓</span><span>Download whitepaper</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSIGHTS -->
+        <section id="insights" class="py-32 bg-[#090909] text-white relative z-10">
+            <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+                <div class="flex justify-between items-end border-b border-white/10 pb-8 mb-14">
+                    <div><div class="section-marker"><span class="section-index">07</span><span class="section-kicker">Insights</span></div><h2 class="font-display text-4xl md:text-6xl font-medium tracking-tight">Ideas worth examining.</h2></div>
+                    <span class="hidden md:block font-mono text-[10px] text-grey-600 uppercase tracking-widest">Research / Notes / Perspective</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <article class="border border-white/10 p-7 hover:bg-white/5 transition-colors duration-500">
+                        <span class="font-mono text-[10px] text-grey-600">01</span>
+                        <h3 class="font-display text-2xl mt-16 mb-4">Technology & AI</h3>
+                        <p class="text-sm leading-relaxed text-grey-500">Practical questions around adopting AI, intelligent systems and emerging technology without losing sight of outcomes.</p>
+                    </article>
+                    <article class="border border-white/10 p-7 hover:bg-white/5 transition-colors duration-500">
+                        <span class="font-mono text-[10px] text-grey-600">02</span>
+                        <h3 class="font-display text-2xl mt-16 mb-4">Automation</h3>
+                        <p class="text-sm leading-relaxed text-grey-500">Where workflows can be redesigned, connected and automated to improve how organizations operate.</p>
+                    </article>
+                    <article class="border border-white/10 p-7 hover:bg-white/5 transition-colors duration-500">
+                        <span class="font-mono text-[10px] text-grey-600">03</span>
+                        <h3 class="font-display text-2xl mt-16 mb-4">Technology & Security</h3>
+                        <p class="text-sm leading-relaxed text-grey-500">Why security, reliability and responsible technology need to be considered as part of modern systems.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT MUST BE LAST -->
+        <section id="contact" class="bg-[#050505] relative z-10 pt-32 pb-12 border-t border-white/10 overflow-hidden min-h-[85vh] flex flex-col justify-between">
+            <div class="contact-layout max-w-7xl mx-auto w-full px-6 md:px-12 flex-1">
+                <div class="contact-intro">
+                    <div class="section-marker contact-marker"><span class="section-index">08</span><span class="section-kicker">Start a Conversation</span></div>
+                    <h2 class="font-display text-6xl md:text-9xl font-bold tracking-tighter mb-8 text-white">LET'S WORK.</h2>
+                    <p class="max-w-xl text-grey-400 text-sm md:text-base leading-relaxed">Have a security problem, an inefficient process, or a software requirement? Tell us what you're trying to solve and the outcome you need.</p>
+                    <div class="contact-links" aria-label="Contact and social links">
+                        <a class="contact-link" href="tel:+919025381357"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.6 3.8 9 3.2l2 4.8-1.8 1.5a15.2 15.2 0 0 0 5.3 5.3l1.5-1.8 4.8 2-0.6 2.4a2 2 0 0 1-2.1 1.5C11.7 18.3 5.7 12.3 5.1 5.9a2 2 0 0 1 1.5-2.1Z"/></svg><span>+91 9025381357</span></a>
+                        <a class="contact-link" href="mailto:contact@greycircuit.tech"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 6l9 7 9-7"/></svg><span>contact@greycircuit.tech</span></a>
+                        <a class="contact-link" href="https://www.linkedin.com/in/ajoyag/" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 8v10M6 5.2v.1M10 18v-6a3 3 0 0 1 6 0v6M10 12V8"/></svg><span>LinkedIn</span></a>
+                        <a class="contact-link" href="https://twitter.com/0xprowl3r" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 4 14 16M19 4 5 20"/></svg><span>X</span></a>
+                        <a class="contact-link" href="https://github.com/ajoyag" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 19c-4 1.3-4-2-5-2m10 4v-3.5c0-1 .1-1.4-.5-2 2.5-.3 5-1.2 5-5.5a4.3 4.3 0 0 0-1.2-3.1A4 4 0 0 0 17.2 3S16.2 2.7 14 4a10 10 0 0 0-4 0C7.8 2.7 6.8 3 6.8 3a4 4 0 0 0-.1 2.4A4.3 4.3 0 0 0 5.5 8.5c0 4.3 2.5 5.2 5 5.5-.6.6-.6 1.1-.5 2V21"/></svg><span>GitHub</span></a>
+                        <a class="contact-link" href="https://medium.com/@0xprowl3r" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="7" cy="12" r="4"/><ellipse cx="15" cy="12" rx="2.5" ry="4"/><ellipse cx="19" cy="12" rx="1" ry="4"/></svg><span>Medium</span></a>
+                    </div>
+                </div>
+                <form class="contact-form" action="mailto:contact@greycircuit.tech" method="post" enctype="text/plain">
+                    <label class="contact-field"><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
+                    <label class="contact-field"><span>Work email</span><input type="email" name="email" autocomplete="email" required></label>
+                    <label class="contact-field"><span>Organization</span><input type="text" name="organization" autocomplete="organization"></label>
+                    <label class="contact-field contact-field-wide"><span>What are you looking to build, secure or automate?</span><textarea name="message" rows="4" required placeholder="Share the problem, current technology and outcome you are looking for."></textarea></label>
+                    <button type="submit" class="contact-submit magnetic" data-magnetic><span>Discuss your requirement</span><span aria-hidden="true">↗</span></button>
+                    <p class="contact-note">Your email client will open with the details prepared.</p>
+                </form>
+            </div>
+            <div class="max-w-7xl mx-auto w-full px-6 md:px-12 mt-20 flex flex-col md:flex-row justify-between items-center border-t border-white/10 pt-8">
+                <div class="font-display font-semibold tracking-widest uppercase text-sm mb-4 md:mb-0">Grey Circuit Technologies Private Limited</div>
+                <div class="font-mono text-[10px] text-grey-600 uppercase tracking-widest text-center md:text-right">
+                    <p>&copy; 2026 Grey Circuit Technologies Pvt. Ltd.</p>
+                    <p class="mt-1">Technology for what comes next.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts: one coherent runtime, fixing the previously truncated/duplicated logic -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
