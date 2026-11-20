@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-black text-white antialiased">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grey Circuit Technologies | Cybersecurity, Automation &amp; Software Engineering</title>
+    <meta name="description"
+        content="Grey Circuit Technologies helps businesses secure systems, automate operations, and build custom software through offensive cybersecurity, process automation, and software engineering.">
+    <link rel="canonical" href="https://greycircuit.tech/">
+
+    <!-- OpenGraph -->
+    <meta property="og:title"
+        content="Grey Circuit Technologies | Cybersecurity, Automation &amp; Software Engineering">
+    <meta property="og:description"
+        content="Secure systems, automate operations, and build resilient software with Grey Circuit Technologies.">
+    <meta property="og:url" content="https://greycircuit.tech/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Grey Circuit Technologies">
+    <meta property="og:image" content="https://greycircuit.tech/assets/logo_transparent.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title"
+        content="Grey Circuit Technologies | Cybersecurity, Automation &amp; Software Engineering">
+    <meta name="twitter:description"
+        content="Secure systems, automate operations, and build resilient software with Grey Circuit Technologies.">
+    <meta name="twitter:image" content="https://greycircuit.tech/assets/logo_transparent.png">
+
+    <!-- Structured Data: Organization, WebSite, and Core Services -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://greycircuit.tech/#organization",
+        "name": "GREYCIRCUIT TECHNOLOGIES PRIVATE LIMITED",
+        "brand": { "@type": "Brand", "name": "Grey Circuit Technologies" },
+        "url": "https://greycircuit.tech/",
+        "logo": "https://greycircuit.tech/assets/logo_transparent.png",
+        "email": "contact@greycircuit.tech",
+        "telephone": "+91-9025381357",
+        "founder": {
+          "@type": "Person",
+          "name": "Ajoy A G",
+          "url": "https://www.ajoyag.in"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/ajoyag/",
+          "https://twitter.com/0xprowl3r",
+          "https://github.com/ajoyag",
+          "https://medium.com/@0xprowl3r"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://greycircuit.tech/#website",
+        "url": "https://greycircuit.tech/",
+        "name": "Grey Circuit Technologies",
+        "publisher": { "@id": "https://greycircuit.tech/#organization" }
+      },
+      {
+        "@type": "Service",
+        "@id": "https://greycircuit.tech/services/cybersecurity-service/cybersecurity.html#service",
+        "name": "Enterprise Cybersecurity & Offensive Security Engineering",
+        "serviceType": "Cybersecurity",
+        "provider": { "@id": "https://greycircuit.tech/#organization" },
+        "url": "https://greycircuit.tech/services/cybersecurity-service/cybersecurity.html",
+        "description": "Penetration testing, application and API security reviews, cloud security readiness, and actionable remediation engineering."
+      },
+      {
+        "@type": "Service",
+        "@id": "https://greycircuit.tech/services/automation-service/automation.html#service",
+        "name": "Industrial & Business Process Automation",
+        "serviceType": "Automation",
+        "provider": { "@id": "https://greycircuit.tech/#organization" },
+        "url": "https://greycircuit.tech/services/automation-service/automation.html",
+        "description": "Production workflow automation, cross-system API integrations, real-time operational telemetry, and exception handling."
+      },
+      {
+        "@type": "Service",
+        "@id": "https://greycircuit.tech/services/swe-service/software-engineering.html#service",
+        "name": "Custom Software & AI Application Engineering",
+        "serviceType": "Software Engineering",
+        "provider": { "@id": "https://greycircuit.tech/#organization" },
+        "url": "https://greycircuit.tech/services/swe-service/software-engineering.html",
+        "description": "Custom web applications, resilient APIs, internal operational tooling, and human-in-the-loop AI systems."
+      }
+    ]
+  }
+  </script>
+
+    <!-- Fonts: Inter, Space Grotesk, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="selection-invert">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="noise-overlay" aria-hidden="true"></div>
+    <div id="cursor-dot" aria-hidden="true"></div>
+    <div id="cursor-ring" aria-hidden="true"></div>
+
+    <!-- Primary Navigation (Dynamic Island + Mobile Slide-Out Drawer) -->
+    <header>
+        <nav class="dynamic-island" id="site-nav" aria-label="Primary navigation">
+            <div class="island-shell">
+                <a href="/" class="island-brand" aria-label="Grey Circuit Technologies home">
+                    <img src="assets/logo_transparent.png" alt="" width="20" height="23" decoding="async">
+                    <span>GREY CIRCUIT</span>
+                </a>
+                <div class="island-divider" aria-hidden="true"></div>
+
+                <div class="island-links-desktop">
+                    <a href="#about" class="island-link magnetic" data-magnetic data-nav-section="about">About</a>
+
+                    <div class="nav-dropdown">
+                        <button type="button" class="island-link nav-dropdown-trigger magnetic" data-magnetic
+                            data-nav-section="services" aria-expanded="false" aria-haspopup="true">
+                            Services <span class="nav-chevron" aria-hidden="true">+</span>
+                        </button>
+                        <div class="nav-dropdown-menu" role="menu">
+                            <a href="/services/cybersecurity-service/cybersecurity.html"
+                                role="menuitem">Cybersecurity</a>
+                            <a href="/services/automation-service/automation.html" role="menuitem">Automation</a>
+                            <a href="/services/swe-service/software-engineering.html" role="menuitem">Software
+                                Engineering</a>
+                            <a href="/services/" role="menuitem">All Capabilities →</a>
+                        </div>
+                    </div>
+
+                    <a href="/projects/project.html" class="island-link magnetic" data-magnetic
+                        data-nav-section="projects">Projects</a>
+                    <a href="#industries" class="island-link magnetic" data-magnetic
+                        data-nav-section="industries">Industries</a>
+                    <a href="#approach" class="island-link magnetic" data-magnetic
+                        data-nav-section="approach">Approach</a>
+                    <a href="#insights" class="island-link magnetic" data-magnetic
+                        data-nav-section="insights">Insights</a>
+                </div>
+
+                <a href="#contact" class="island-contact magnetic" data-magnetic data-nav-section="contact">Contact</a>
+
+                <button type="button" class="mobile-drawer-toggle" id="mobile-drawer-toggle" aria-expanded="false"
+                    aria-controls="mobile-drawer" aria-label="Open navigation menu">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Accessible Mobile Slide-Out Drawer -->
+        <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop" hidden></div>
+        <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation Drawer" aria-hidden="true">
+            <div class="mobile-drawer-header">
+                <span class="font-mono text-xs tracking-widest uppercase text-grey-400">NAVIGATION // GCT</span>
+                <button type="button" class="mobile-drawer-close" id="mobile-drawer-close"
+                    aria-label="Close navigation menu">&times;</button>
+            </div>
+            <nav class="mobile-drawer-nav">
+                <a href="#about" class="mobile-drawer-link">01 / About Grey Circuit</a>
+                <a href="#founder" class="mobile-drawer-link">02 / Founder</a>
+                <a href="#services" class="mobile-drawer-link">03 / Core Capabilities</a>
+                <div class="mobile-drawer-sublinks">
+                    <a href="/services/cybersecurity-service/cybersecurity.html">→ Cybersecurity</a>
+                    <a href="/services/automation-service/automation.html">→ Automation</a>
+                    <a href="/services/swe-service/software-engineering.html">→ Software Engineering</a>
+                </div>
+                <a href="/projects/project.html" class="mobile-drawer-link">04 / Selected Projects</a>
+                <a href="#industries" class="mobile-drawer-link">05 / Industries</a>
+                <a href="#approach" class="mobile-drawer-link">06 / Execution Model</a>
+                <a href="whitepaper.html" class="mobile-drawer-link">07 / Whitepaper</a>
+                <a href="#insights" class="mobile-drawer-link">08 / Insights</a>
+                <a href="#contact" class="mobile-drawer-cta">Start a Conversation ↗</a>
+            </nav>
+        </aside>
+    </header>
+
+    <main id="main-content">
+        <!-- HERO SECTION -->
+        <section id="hero" class="hero-section">
+            <div class="ambient-glow hero-glow" aria-hidden="true"></div>
+            <div class="container hero-container">
+                <div class="hero-badge reveal-on-scroll">
+                    <span class="pulse-dot" aria-hidden="true"></span>
+                    <span>CYBERSECURITY / AUTOMATION / SOFTWARE ENGINEERING</span>
+                </div>
+
+                <h1 class="hero-title font-display reveal-on-scroll">
+                    <span class="hero-word">BUILD.</span>
+                    <span class="hero-word text-gradient-slate">SECURE.</span>
+                    <span class="hero-word">AUTOMATE.</span>
+                </h1>
+
+                <p class="hero-desc reveal-on-scroll">
+                    Grey Circuit Technologies engineers high-trust software, offensive security programs, and
+                    industrial-grade workflow automation tailored to how modern organizations actually operate.
+                </p>
+
+                <div class="hero-actions reveal-on-scroll">
+                    <a href="#services" class="btn-primary magnetic" data-magnetic>
+                        <span>Explore Capabilities</span>
+                        <span aria-hidden="true">→</span>
+                    </a>
+                    <a href="#contact" class="btn-secondary magnetic" data-magnetic>
+                        <span>Start a Conversation</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="scroll-indicator" aria-hidden="true">
+                <span class="font-mono text-2xs tracking-widest uppercase">Scroll to engage</span>
+                <div class="scroll-track">
+                    <div class="scroll-line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 01 / ABOUT -->
+        <section id="about" class="site-section section-obsidian" data-section="about">
+            <div class="container grid-12">
+                <div class="col-span-5 reveal-on-scroll">
+                    <span class="section-index" aria-hidden="true">01</span>
+                    <p class="section-kicker">About Grey Circuit</p>
+                    <h2 class="section-heading font-display">Technology for what comes next.</h2>
+                </div>
+                <div class="col-span-7 reveal-on-scroll">
+                    <p class="lead-paragraph">
+                        Grey Circuit Technologies is a deep-tech engineering partner delivering cybersecurity,
+                        automation, and custom software engineering. We help startups, mid-market operators, and
+                        enterprise technology teams solve real operational bottlenecks with systems that are secure,
+                        observable, and built to last.
+                    </p>
+                    <div class="principles-grid">
+                        <article class="principle-card">
+                            <span class="principle-index">01 // DISCIPLINE</span>
+                            <h3>Engineering over noise</h3>
+                            <p>Build practical, maintainable architectures instead of introducing fragile dependencies
+                                or unnecessary complexity.</p>
+                        </article>
+                        <article class="principle-card">
+                            <span class="principle-index">02 // RESILIENCE</span>
+                            <h3>Security by design</h3>
+                            <p>Treat threat modeling, least-privilege access, and offensive validation as foundational
+                                engineering—never an afterthought.</p>
+                        </article>
+                        <article class="principle-card">
+                            <span class="principle-index">03 // VELOCITY</span>
+                            <h3>Automate what should not be manual</h3>
+                            <p>Convert fragmented handoffs and repetitive data entry into deterministic, auditable, and
+                                self-healing workflows.</p>
+                        </article>
+                        <article class="principle-card">
+                            <span class="principle-index">04 // GOVERNANCE</span>
+                            <h3>Use AI responsibly</h3>
+                            <p>Deploy intelligent systems where data supports them while enforcing human oversight,
+                                telemetry, and strict quality guardrails.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quantitative Technical Metric Strip -->
+        <section class="telemetry-strip section-obsidian" aria-label="Operational engineering benchmarks">
+            <div class="container">
+                <div class="hero-telemetry-grid reveal-on-scroll" aria-label="Operational engineering benchmarks">
+                    <div class="telemetry-card">
+                        <span class="telemetry-label">TARGET SYSTEM AVAILABILITY</span>
+                        <strong class="telemetry-value">
+                            <span data-counter="99.95" data-decimals="2">0</span>%
+                        </strong>
+                        <small class="telemetry-sub">Resilient architecture &amp; graceful fallback</small>
+                    </div>
+                    <div class="telemetry-card">
+                        <span class="telemetry-label">MANUAL WORKFLOW REDUCTION</span>
+                        <strong class="telemetry-value">
+                            <span data-counter="78" data-decimals="0">0</span>%
+                        </strong>
+                        <small class="telemetry-sub">Connected APIs, sensors &amp; operational pipelines</small>
+                    </div>
+                    <div class="telemetry-card">
+                        <span class="telemetry-label">CRITICAL RISK REMEDIATION SLA</span>
+                        <strong class="telemetry-value">
+                            &lt;<span data-counter="24" data-decimals="0">0</span>h
+                        </strong>
+                        <small class="telemetry-sub">Evidence-led offensive testing &amp; triage</small>
+                    </div>
+                    <div class="telemetry-card">
+                        <span class="telemetry-label">CORE ENGINEERING PILLARS</span>
+                        <strong class="telemetry-value">
+                            0<span data-counter="3" data-decimals="0">0</span>
+                        </strong>
+                        <small class="telemetry-sub">Unified security, automation &amp; software</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02 / FOUNDER -->
+        <section id="founder" class="site-section section-slate">
+            <div class="container founder-grid">
+                <div class="reveal-on-scroll">
+                    <span class="section-index" aria-hidden="true">02</span>
+                    <p class="section-kicker">About the Founder</p>
+                    <h2 class="section-heading font-display">AJOY A G</h2>
+                    <p class="founder-tags">Cybersecurity &bull; Automation &bull; Software Engineering</p>
+                    <p class="founder-bio">
+                        Ajoy A G founded Grey Circuit Technologies to bridge the gap between offensive cybersecurity,
+                        industrial/process automation, and full-stack software engineering. His work focuses on
+                        hardening critical systems, eliminating operational friction, and engineering custom software
+                        around real-world constraints.
+                    </p>
+                    <div class="founder-links">
+                        <a href="https://www.linkedin.com/in/ajoyag/" target="_blank" rel="noopener noreferrer"
+                            class="founder-link magnetic" data-magnetic>LinkedIn ↗</a>
+                        <a href="https://www.ajoyag.in" target="_blank" rel="noopener noreferrer"
+                            class="founder-link magnetic" data-magnetic>ajoyag.in ↗</a>
+                        <a href="https://github.com/ajoyag" target="_blank" rel="noopener noreferrer"
+                            class="founder-link magnetic" data-magnetic>GitHub ↗</a>
+                    </div>
+                </div>
+                <div class="founder-portrait-wrap reveal-on-scroll">
+                    <img src="assets/profile.avif" alt="Ajoy A G, Founder of Grey Circuit Technologies"
+                        class="founder-portrait" width="360" height="450" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </section>
+
+        <!-- 03 / SERVICE PILLARS & SOCIAL PROOF BENCHMARKS -->
+        <section id="services" class="site-section section-obsidian" data-section="services">
+            <div class="container">
+                <div class="section-header-bar reveal-on-scroll">
+                    <div>
+                        <div class="section-marker">
+                            <span class="section-index" aria-hidden="true">03</span>
+                            <span class="section-kicker">Core Capabilities</span>
+                        </div>
+                        <h2 class="section-heading-lg font-display">Technology &amp; Services</h2>
+                    </div>
+                    <a href="/services/" class="header-link font-mono">Explore full catalog (01 — 03) →</a>
+                </div>
+
+                <div class="services-carousel grid-3">
+                    <!-- Pillar 1: Cybersecurity -->
+                    <article class="practice-card card-cybersecurity glass-panel reveal-on-scroll">
+                        <div class="practice-card-top">
+                            <div class="pillar-badge"><span class="font-mono">01</span></div>
+                            <span class="pillar-tag">OFFENSIVE &amp; DEFENSIVE</span>
+                        </div>
+                        <div class="practice-card-body">
+                            <h3 class="font-display">Enterprise Cybersecurity</h3>
+                            <p>Test systems like an adversary, uncover exploitable logic flaws, and engineer practical
+                                remediation across applications, APIs, and cloud infrastructure.</p>
+                            <ul class="pillar-specs">
+                                <li>Penetration Testing &amp; Red Teaming</li>
+                                <li>Application &amp; API Security Reviews</li>
+                                <li>Cloud Posture &amp; Zero-Trust Hardening</li>
+                            </ul>
+                        </div>
+                        <a href="/services/cybersecurity-service/cybersecurity.html" class="pillar-cta"
+                            aria-label="Explore Enterprise Cybersecurity services">
+                            <span>Discuss security</span>
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    </article>
+
+                    <!-- Pillar 2: Automation -->
+                    <article class="practice-card card-automation glass-panel reveal-on-scroll">
+                        <div class="practice-card-top">
+                            <div class="pillar-badge"><span class="font-mono">02</span></div>
+                            <span class="pillar-tag">WORKFLOWS &amp; TELEMETRY</span>
+                        </div>
+                        <div class="practice-card-body">
+                            <h3 class="font-display">Process &amp; Production Automation</h3>
+                            <p>Connect shop-floor machines, APIs, databases, and business systems into deterministic
+                                workflows with real-time visibility and automated exception handling.</p>
+                            <ul class="pillar-specs">
+                                <li>Production Process Automation</li>
+                                <li>Cross-System API &amp; Webhook Pipelines</li>
+                                <li>Automated Shift &amp; Executive Telemetry</li>
+                            </ul>
+                        </div>
+                        <a href="/services/automation-service/automation.html" class="pillar-cta"
+                            aria-label="Explore Process and Production Automation services">
+                            <span>Discuss automation</span>
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    </article>
+
+                    <!-- Pillar 3: Software Engineering -->
+                    <article class="practice-card card-software-engineering glass-panel reveal-on-scroll">
+                        <div class="practice-card-top">
+                            <div class="pillar-badge"><span class="font-mono">03</span></div>
+                            <span class="pillar-tag">FULL-STACK &amp; AI SYSTEMS</span>
+                        </div>
+                        <div class="practice-card-body">
+                            <h3 class="font-display">Custom Software Engineering</h3>
+                            <p>Architect and ship high-performance web applications, distributed backends, operational
+                                control planes, and audited AI-enabled products.</p>
+                            <ul class="pillar-specs">
+                                <li>Custom Web Apps &amp; Internal Control Planes</li>
+                                <li>High-Throughput APIs &amp; Data Architectures</li>
+                                <li>Audited Human-in-the-Loop AI Workflows</li>
+                            </ul>
+                        </div>
+                        <a href="/services/swe-service/software-engineering.html" class="pillar-cta"
+                            aria-label="Explore Custom Software Engineering services">
+                            <span>Discuss software</span>
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    </article>
+                </div>
+
+                <!-- Quantitative Outcome Highlights / Engineering Benchmarks -->
+                <div class="outcomes-strip reveal-on-scroll" aria-label="Verified engineering delivery standards">
+                    <div class="outcome-item">
+                        <span class="outcome-kicker">SECURITY BENCHMARK</span>
+                        <strong>OWASP ASVS &amp; PTES Aligned</strong>
+                        <p>Every security review delivers reproducible proof-of-concept evidence and engineering-ready
+                            patches—zero scanner noise.</p>
+                    </div>
+                    <div class="outcome-item">
+                        <span class="outcome-kicker">OPERATIONAL THROUGHPUT</span>
+                        <strong>Idempotent &amp; Observable Pipelines</strong>
+                        <p>Automation workflows are engineered with dead-letter queues, retry backoff, audit logs, and
+                            human fallback controls.</p>
+                    </div>
+                    <div class="outcome-item">
+                        <span class="outcome-kicker">ARCHITECTURE STANDARD</span>
+                        <strong>Zero-Lock-In Modular Codebases</strong>
+                        <p>Clean domain boundaries, strict access controls, and comprehensive documentation built for
+                            long-term maintainability.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 / SELECTED PROJECTS -->
+        <section id="projects" class="site-section section-slate" data-section="projects">
+            <div class="container">
+                <div class="section-header-bar reveal-on-scroll">
+                    <div>
+                        <div class="section-marker">
+                            <span class="section-index" aria-hidden="true">04</span>
+                            <span class="section-kicker">Selected Projects</span>
+                        </div>
+                        <h2 class="section-heading-lg font-display">Engineered outcomes.</h2>
+                    </div>
+                    <a href="/projects/project.html" class="header-link font-mono">View all projects →</a>
+                </div>
+
+                <div class="grid-3">
+                    <article class="project-preview-card glass-panel reveal-on-scroll">
+                        <div class="project-card-meta">
+                            <span class="font-mono text-2xs text-grey-500">CASE STUDY // 01</span>
+                            <span class="status-pill">MANUFACTURING &amp; OPS</span>
+                        </div>
+                        <h3 class="font-display">Production Intelligence Platform</h3>
+                        <p>Connected shop-floor production workflows, automated shift telemetry, and real-time exception
+                            routing for industrial operations.</p>
+                        <div class="project-tags">
+                            <span>Automation</span>
+                            <span>Software Engineering</span>
+                            <span>Manufacturing</span>
+                        </div>
+                    </article>
+
+                    <article class="project-preview-card glass-panel reveal-on-scroll">
+                        <div class="project-card-meta">
+                            <span class="font-mono text-2xs text-grey-500">CASE STUDY // 02</span>
+                            <span class="status-pill">OFFENSIVE SECURITY</span>
+                        </div>
+                        <h3 class="font-display">Security Assessment Platform</h3>
+                        <p>Internal security engineering workspace unifying attack-surface mapping, vulnerability
+                            triage, and remediation verification.</p>
+                        <div class="project-tags">
+                            <span>Cybersecurity</span>
+                            <span>Security Engineering</span>
+                            <span>Internal</span>
+                        </div>
+                    </article>
+
+                    <article class="project-preview-card glass-panel reveal-on-scroll">
+                        <div class="project-card-meta">
+                            <span class="font-mono text-2xs text-grey-500">CASE STUDY // 03</span>
+                            <span class="status-pill">APPLIED AI</span>
+                        </div>
+                        <h3 class="font-display">AI Workflow Studio</h3>
+                        <p>Agentic workflow orchestration engine with deterministic policy guardrails, RBAC governance,
+                            and human-in-the-loop approvals.</p>
+                        <div class="project-tags">
+                            <span>AI</span>
+                            <span>Software Engineering</span>
+                            <span>Automation</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="mt-10 reveal-on-scroll">
+                    <a href="/projects/project.html" class="project-preview-cta">Explore the full project directory
+                        <span aria-hidden="true">→</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05 / INDUSTRIES -->
+        <section id="industries" class="site-section section-obsidian" data-section="industries">
+            <div class="container grid-12">
+                <div class="col-span-4 reveal-on-scroll">
+                    <div class="section-marker">
+                        <span class="section-index" aria-hidden="true">05</span>
+                        <span class="section-kicker">Where We Apply Technology</span>
+                    </div>
+                    <h2 class="section-heading-lg font-display">Built around the business.</h2>
+                </div>
+                <div class="col-span-8 reveal-on-scroll">
+                    <p class="lead-paragraph">
+                        We partner with organizations across diverse technical environments and operational maturity
+                        levels. Every engagement begins with the underlying engineering problem—never a rigid industry
+                        template.
+                    </p>
+                    <div class="industry-matrix">
+                        <article class="industry-cell">
+                            <span class="font-mono text-2xs text-grey-500">01 // SCALE</span>
+                            <h3 class="font-display">Technology &amp; SaaS</h3>
+                            <p>Multi-tenant platforms, API ecosystems, and engineering teams requiring high availability
+                                and continuous security validation.</p>
+                        </article>
+                        <article class="industry-cell">
+                            <span class="font-mono text-2xs text-grey-500">02 // VELOCITY</span>
+                            <h3 class="font-display">Startups &amp; Growth Businesses</h3>
+                            <p>Founding and scaling teams shipping MVPs to production while balancing rapid iteration,
+                                cloud cost, and security compliance.</p>
+                        </article>
+                        <article class="industry-cell">
+                            <span class="font-mono text-2xs text-grey-500">03 // OPERATIONS</span>
+                            <h3 class="font-display">Manufacturing &amp; Digital Enterprises</h3>
+                            <p>Production-heavy organizations replacing spreadsheets and disconnected legacy software
+                                with unified telemetry and automation.</p>
+                        </article>
+                        <article class="industry-cell">
+                            <span class="font-mono text-2xs text-grey-500">04 // INTELLIGENCE</span>
+                            <h3 class="font-display">Organizations Adopting AI</h3>
+                            <p>Enterprises integrating LLMs and intelligent workflows while enforcing data privacy,
+                                access boundaries, and auditability.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06 / EXECUTION MODEL (APPROACH) -->
+        <section id="approach" class="site-section section-slate" data-section="approach">
+            <div class="container approach-container">
+                <div class="approach-header reveal-on-scroll">
+                    <div class="section-marker execution-marker">
+                        <span class="section-index" aria-hidden="true">06</span>
+                        <span class="section-kicker">Execution Model</span>
+                    </div>
+                    <h2 class="section-heading-lg font-display">How Grey Circuit Works</h2>
+                    <p class="text-grey-400 max-w-xl mx-auto mt-4">
+                        Understand the operating environment, engineer the smallest high-leverage system, validate
+                        rigorously, and improve continuously.
+                    </p>
+                </div>
+
+                <div class="circuit-timeline" id="circuit-timeline">
+                    <div class="circuit-line-track" id="circuit-path-bg" aria-hidden="true">
+                        <div class="circuit-line-fill" id="circuit-path-fill"></div>
+                    </div>
+
+                    <div class="meth-step" data-step="1">
+                        <div class="meth-side meth-left step-content">
+                            <h3 class="font-display">Understand</h3>
+                            <p>Map business objectives, operational constraints, system boundaries, and the exact
+                                problem worth solving.</p>
+                        </div>
+                        <div class="meth-center">
+                            <div class="circuit-node step-num">01</div>
+                        </div>
+                        <div class="meth-side meth-right"></div>
+                    </div>
+
+                    <div class="meth-step" data-step="2">
+                        <div class="meth-side meth-left"></div>
+                        <div class="meth-center">
+                            <div class="circuit-node step-num">02</div>
+                        </div>
+                        <div class="meth-side meth-right step-content">
+                            <h3 class="font-display">Assess</h3>
+                            <p>Evaluate existing architecture, data flows, manual bottlenecks, integration points, and
+                                security risks.</p>
+                        </div>
+                    </div>
+
+                    <div class="meth-step" data-step="3">
+                        <div class="meth-side meth-left step-content">
+                            <h3 class="font-display">Engineer</h3>
+                            <p>Design and build the custom software, automated workflow, or security control around real
+                                requirements.</p>
+                        </div>
+                        <div class="meth-center">
+                            <div class="circuit-node step-num">03</div>
+                        </div>
+                        <div class="meth-side meth-right"></div>
+                    </div>
+
+                    <div class="meth-step" data-step="4">
+                        <div class="meth-side meth-left"></div>
+                        <div class="meth-center">
+                            <div class="circuit-node step-num">04</div>
+                        </div>
+                        <div class="meth-side meth-right step-content">
+                            <h3 class="font-display">Validate</h3>
+                            <p>Stress-test functional accuracy, failure modes, edge cases, and security boundaries prior
+                                to production reliance.</p>
+                        </div>
+                    </div>
+
+                    <div class="meth-step" data-step="5">
+                        <div class="meth-side meth-left step-content">
+                            <h3 class="font-display">Secure by design</h3>
+                            <p>Embed authentication, least privilege, secrets governance, and audit logging across the
+                                entire lifecycle.</p>
+                        </div>
+                        <div class="meth-center">
+                            <div class="circuit-node step-num">05</div>
+                        </div>
+                        <div class="meth-side meth-right"></div>
+                    </div>
+
+                    <div class="meth-step" data-step="6">
+                        <div class="meth-side meth-left"></div>
+                        <div class="meth-center">
+                            <div class="circuit-node step-num">06</div>
+                        </div>
+                        <div class="meth-side meth-right step-content">
+                            <h3 class="font-display">Automate</h3>
+                            <p>Eliminate repetitive manual toil with deterministic pipelines, event triggers, and
+                                operational tooling.</p>
+                        </div>
+                    </div>
+
+                    <div class="meth-step" data-step="7">
+                        <div class="meth-side meth-left step-content">
+                            <h3 class="font-display">Improve</h3>
+                            <p>Monitor live telemetry, measure operational outcomes, and evolve the system as the
+                                organization scales.</p>
+                        </div>
+                        <div class="meth-center">
+                            <div class="circuit-node step-num">07</div>
+                        </div>
+                        <div class="meth-side meth-right"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 07 / WHITEPAPER -->
+        <section id="whitepaper" class="site-section section-obsidian">
+            <div class="container whitepaper-grid">
+                <div class="reveal-on-scroll">
+                    <div class="section-marker">
+                        <span class="section-index" aria-hidden="true">07</span>
+                        <span class="section-kicker">Technical Publication</span>
+                    </div>
+                    <h2 class="section-heading-lg font-display">Technology for what comes next.</h2>
+                </div>
+                <div class="reveal-on-scroll">
+                    <p class="lead-paragraph">
+                        An executive and engineering brief examining how organizations make clear architectural
+                        decisions across cybersecurity, AI adoption, process automation, and custom software under
+                        real-world constraints.
+                    </p>
+                    <div class="flex-wrap-gap mt-8">
+                        <a href="whitepaper.html" class="whitepaper-download magnetic" data-magnetic
+                            aria-label="Read the Grey Circuit whitepaper">
+                            <span aria-hidden="true">↗</span>
+                            <span>Read Whitepaper Brief</span>
+                        </a>
+                        <a href="whitepaper.html" download class="btn-secondary magnetic" data-magnetic
+                            aria-label="Download the Grey Circuit whitepaper HTML">
+                            <span aria-hidden="true">↓</span>
+                            <span>Download Copy</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 08 / INSIGHTS -->
+        <section id="insights" class="site-section section-slate" data-section="insights">
+            <div class="container">
+                <div class="section-header-bar reveal-on-scroll">
+                    <div>
+                        <div class="section-marker">
+                            <span class="section-index" aria-hidden="true">08</span>
+                            <span class="section-kicker">Insights &amp; Research</span>
+                        </div>
+                        <h2 class="section-heading-lg font-display">Ideas worth examining.</h2>
+                    </div>
+                    <span class="font-mono text-2xs text-grey-500 uppercase tracking-widest">Research / Notes /
+                        Perspective</span>
+                </div>
+
+                <div class="grid-3">
+                    <article class="insight-card glass-panel reveal-on-scroll">
+                        <span class="font-mono text-2xs text-grey-500">PERSPECTIVE // 01</span>
+                        <h3 class="font-display">Technology &amp; Applied AI</h3>
+                        <p>Practical engineering questions around adopting LLMs, agentic workflows, and intelligent
+                            systems without losing deterministic control or data security.</p>
+                    </article>
+                    <article class="insight-card glass-panel reveal-on-scroll">
+                        <span class="font-mono text-2xs text-grey-500">PERSPECTIVE // 02</span>
+                        <h3 class="font-display">Deterministic Automation</h3>
+                        <p>How to identify fragile manual handoffs and re-architect them into observable, fault-tolerant
+                            operational pipelines.</p>
+                    </article>
+                    <article class="insight-card glass-panel reveal-on-scroll">
+                        <span class="font-mono text-2xs text-grey-500">PERSPECTIVE // 03</span>
+                        <h3 class="font-display">Offensive Security Engineering</h3>
+                        <p>Why continuous adversarial testing and architectural threat modeling must sit inside the
+                            software delivery lifecycle.</p>
+                    </article>
+                </div>
+
+                <div class="reveal-on-scroll" style="margin-top: 40px; text-align: center;">
+                    <a href="https://blog.greycircuit.tech" class="btn btn-secondary magnetic" data-magnetic>Browse All Publications &amp; Series ↗</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 09 / CONTACT & INTERACTIVE LEAD CAPTURE -->
+        <section id="contact" class="site-section section-obsidian contact-section" data-section="contact">
+            <div class="container contact-layout">
+                <div class="contact-intro reveal-on-scroll">
+                    <div class="section-marker">
+                        <span class="section-index" aria-hidden="true">09</span>
+                        <span class="section-kicker">Start a Conversation</span>
+                    </div>
+                    <h2 class="contact-headline font-display">LET'S WORK.</h2>
+                    <p class="contact-subcopy">
+                        Have a security exposure, an inefficient manual operation, or a custom software requirement?
+                        Share your technical context and the outcome you need.
+                    </p>
+
+                    <div class="contact-links" aria-label="Direct contact and social channels">
+                        <a class="contact-link" href="tel:+919025381357">
+                            <svg aria-hidden="true" viewBox="0 0 24 24">
+                                <path
+                                    d="M6.6 3.8 9 3.2l2 4.8-1.8 1.5a15.2 15.2 0 0 0 5.3 5.3l1.5-1.8 4.8 2-0.6 2.4a2 2 0 0 1-2.1 1.5C11.7 18.3 5.7 12.3 5.1 5.9a2 2 0 0 1 1.5-2.1Z" />
+                            </svg>
+                            <span>+91 9025381357</span>
+                        </a>
+                        <a class="contact-link" href="mailto:contact@greycircuit.tech">
+                            <svg aria-hidden="true" viewBox="0 0 24 24">
+                                <path d="M3 5h18v14H3zM3 6l9 7 9-7" />
+                            </svg>
+                            <span>contact@greycircuit.tech</span>
+                        </a>
+                        <a class="contact-link" href="https://www.linkedin.com/in/ajoyag/" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg aria-hidden="true" viewBox="0 0 24 24">
+                                <path d="M6 8v10M6 5.2v.1M10 18v-6a3 3 0 0 1 6 0v6M10 12V8" />
+                            </svg>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a class="contact-link" href="https://twitter.com/0xprowl3r" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg aria-hidden="true" viewBox="0 0 24 24">
+                                <path d="m5 4 14 16M19 4 5 20" />
+                            </svg>
+                            <span>X (@0xprowl3r)</span>
+                        </a>
+                        <a class="contact-link" href="https://github.com/ajoyag" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg aria-hidden="true" viewBox="0 0 24 24">
+                                <path
+                                    d="M9 19c-4 1.3-4-2-5-2m10 4v-3.5c0-1 .1-1.4-.5-2 2.5-.3 5-1.2 5-5.5a4.3 4.3 0 0 0-1.2-3.1A4 4 0 0 0 17.2 3S16.2 2.7 14 4a10 10 0 0 0-4 0C7.8 2.7 6.8 3 6.8 3a4 4 0 0 0-.1 2.4A4.3 4.3 0 0 0 5.5 8.5c0 4.3 2.5 5.2 5 5.5-.6.6-.6 1.1-.5 2V21" />
+                            </svg>
+                            <span>GitHub</span>
+                        </a>
+                        <a class="contact-link" href="https://medium.com/@0xprowl3r" target="_blank"
+                            rel="noopener noreferrer">
+                            <svg aria-hidden="true" viewBox="0 0 24 24">
+                                <circle cx="7" cy="12" r="4" />
+                                <ellipse cx="15" cy="12" rx="2.5" ry="4" />
+                                <ellipse cx="19" cy="12" rx="1" ry="4" />
+                            </svg>
+                            <span>Medium</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper reveal-on-scroll">
+                    <form class="contact-form" id="inquiry-form" action="mailto:contact@greycircuit.tech" method="post"
+                        enctype="text/plain" novalidate>
+                        <label class="contact-field" for="field-name">
+                            <span>Your Name *</span>
+                            <input id="field-name" type="text" name="name" autocomplete="name" required
+                                placeholder="Alex Rivera">
+                            <small class="field-error" data-error-for="name"></small>
+                        </label>
+
+                        <label class="contact-field" for="field-email">
+                            <span>Work Email *</span>
+                            <input id="field-email" type="email" name="email" autocomplete="email" required
+                                placeholder="alex@company.com">
+                            <small class="field-error" data-error-for="email"></small>
+                        </label>
+
+                        <label class="contact-field" for="field-org">
+                            <span>Organization</span>
+                            <input id="field-org" type="text" name="organization" autocomplete="organization"
+                                placeholder="Acme Systems Pvt. Ltd.">
+                        </label>
+
+                        <label class="contact-field" for="field-domain">
+                            <span>Primary Practice Area</span>
+                            <select id="field-domain" name="domain">
+                                <option value="Cybersecurity">Cybersecurity &amp; Offensive Testing</option>
+                                <option value="Automation">Process &amp; Production Automation</option>
+                                <option value="Software Engineering">Custom Software &amp; AI Engineering</option>
+                                <option value="Multi-Disciplinary">Multi-Disciplinary Architecture</option>
+                            </select>
+                        </label>
+
+                        <label class="contact-field contact-field-wide" for="field-message">
+                            <span>What are you looking to build, secure, or automate? *</span>
+                            <textarea id="field-message" name="message" rows="4" required
+                                placeholder="Share the problem, current technology environment, and desired outcome."></textarea>
+                            <small class="field-error" data-error-for="message"></small>
+                        </label>
+
+                        <div class="contact-field-wide contact-actions-row">
+                            <button type="submit" class="contact-submit magnetic" data-magnetic>
+                                <span>Discuss your requirement</span>
+                                <span aria-hidden="true">↗</span>
+                            </button>
+                            <button type="button" class="btn-json-preview font-mono" id="copy-json-btn">
+                                Copy Structured JSON
+                            </button>
+                        </div>
+
+                        <p class="contact-note contact-field-wide" id="form-feedback" aria-live="polite">
+                            Validates inline, prepares a structured JSON brief, and opens your email client.
+                        </p>
+
+                        <pre class="inquiry-json-preview contact-field-wide" id="inquiry-json-preview" hidden></pre>
+                    </form>
+                </div>
+            </div>
+
+            <footer class="site-footer-corporate" role="contentinfo">
+                <div class="footer-container">
+                    <div class="footer-columns-grid">
+                        <!-- Col 1: Brand & Headquarters -->
+                        <div class="footer-col footer-col-brand">
+                            <div class="footer-brand-header">
+                                <img src="assets/logo_transparent.png" alt="GreyCircuit Logo" width="22" height="26" loading="lazy">
+                                <span class="footer-brand-title font-space">GREYCIRCUIT</span>
+                            </div>
+                            <div class="footer-tagline font-jetbrains">Engineering Beyond Boundaries.</div>
+                            <p class="footer-desc">
+                                GreyCircuit Technologies Private Limited engineers high-assurance digital infrastructure, defends mission-critical assets, and automates enterprise workflows for forward-looking organizations.
+                            </p>
+                            <div class="footer-hq-badge font-jetbrains">
+                                <span class="footer-dot-green"></span>
+                                <span>Bengaluru, Karnataka, India &bull; Reg. CIN: U72900KA2023PTC176543</span>
+                            </div>
+                        </div>
+
+                        <!-- Col 2: Capabilities & Services -->
+                        <div class="footer-col">
+                            <h4 class="footer-heading font-jetbrains">01 // CAPABILITIES</h4>
+                            <ul class="footer-nav-list font-inter">
+                                <li><a href="https://greycircuit.tech/services/cybersecurity-service/cybersecurity.html">Defensive Cybersecurity</a></li>
+                                <li><a href="https://greycircuit.tech/services/cybersecurity-service/cybersecurity.html#zero-trust">Zero-Trust Architecture</a></li>
+                                <li><a href="https://greycircuit.tech/services/swe-service/software-engineering.html">Cloud Infrastructure &amp; SRE</a></li>
+                                <li><a href="https://greycircuit.tech/services/automation-service/automation.html">Enterprise Automation</a></li>
+                                <li><a href="https://greycircuit.tech/services/swe-service/software-engineering.html">High-Scale Software Engineering</a></li>
+                                <li><a href="https://greycircuit.tech/whitepaper.html">Technical Whitepapers</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Col 3: Publications & Intelligence -->
+                        <div class="footer-col">
+                            <h4 class="footer-heading font-jetbrains">02 // PUBLICATIONS</h4>
+                            <ul class="footer-nav-list font-inter">
+                                <li><a href="https://blog.greycircuit.tech?series=gct-threatscape">GCT THREATSCAPE</a></li>
+                                <li><a href="https://blog.greycircuit.tech?series=gct-field-notes">GCT Field Notes</a></li>
+                                <li><a href="https://blog.greycircuit.tech?series=cybersecurity-intelligence">Cybersecurity Intelligence</a></li>
+                                <li><a href="https://blog.greycircuit.tech?series=regulatory-compliance">Compliance &amp; Regulatory</a></li>
+                                <li><a href="https://blog.greycircuit.tech?series=automation-engineering">Automation &amp; Engineering</a></li>
+                                <li><a href="https://blog.greycircuit.tech?series=research-whitepapers">Research &amp; Whitepapers</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Col 4: Connect & Governance -->
+                        <div class="footer-col">
+                            <h4 class="footer-heading font-jetbrains">03 // SECURITY &amp; CONTACT</h4>
+                            <ul class="footer-nav-list font-inter">
+                                <li><a href="mailto:security@greycircuit.tech"><span class="font-jetbrains" style="color: #666;">Desk:</span> security@greycircuit.tech</a></li>
+                                <li><a href="mailto:contact@greycircuit.tech"><span class="font-jetbrains" style="color: #666;">Inquiries:</span> contact@greycircuit.tech</a></li>
+                                <li><a href="#contact">Direct Engagement Portal</a></li>
+                                <li><a href="projects/project.html">Selected Client Work</a></li>
+                            </ul>
+                            <div class="footer-status-pill font-jetbrains">
+                                <span class="footer-dot-green"></span>
+                                <span>CONTROL PLANE: OPERATIONAL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Bar -->
+                    <div class="footer-bottom-bar font-jetbrains">
+                        <div class="footer-copy">
+                            &copy; 2026 GREYCIRCUIT TECHNOLOGIES PRIVATE LIMITED. All rights reserved.
+                        </div>
+                        <div class="footer-legal-links">
+                            <span>Fail-Closed Edge Architecture</span>
+                            <span class="footer-sep">&bull;</span>
+                            <span>DPDP Act 2023 Aligned</span>
+                            <span class="footer-sep">&bull;</span>
+                            <span>ISO 27001 Posture</span>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </section>
+    </main>
+
+    <script src="config.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+
+</html>

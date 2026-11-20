@@ -1,0 +1,34 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.bak
+
+# Editor & IDE Dirs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Node / NPM (if local tools used)
+node_modules/
+package-lock.json
+
+# Local Environment & Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+*.crt
+
+# Administrative & Sub-app Quarantine
+admin/
+blog/
+scratch/
+backups/
+*.enc
+*.dump
+*.sql
