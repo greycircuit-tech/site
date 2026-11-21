@@ -523,6 +523,73 @@
               if (p && st.description) p.textContent = st.description;
             }
           });
+        } else if (sec.section_key === 'popular') {
+          const grid = document.getElementById('insights-grid');
+          if (grid) {
+            const pinnedSlugs = Array.isArray(data.pinnedSlugs) ? data.pinnedSlugs.filter(Boolean).slice(0, 3) : [];
+            if (pinnedSlugs.length > 0) {
+              try {
+                // Fetch only the published articles matching pinnedSlugs
+                const inFilter = pinnedSlugs.map(s => `"${s}"`).join(',');
+                const artRes = await fetch(`${cfg.supabaseUrl}/rest/v1/articles?status=eq.published&slug=in.(${inFilter})`, {
+                  headers: { apikey: cfg.anonKey }
+                });
+                if (artRes.ok) {
+                  const fetchedArticles = await artRes.json();
+                  if (Array.isArray(fetchedArticles) && fetchedArticles.length > 0) {
+                    // Retain exact order of pinnedSlugs
+                    const ordered = pinnedSlugs
+                      .map(s => fetchedArticles.find(a => a.slug === s))
+                      .filter(Boolean);
+
+                    if (ordered.length > 0) {
+                      const SERIES_MAP = {
+                        'gct-threatscape': { name: 'GCT THREATSCAPE', accent: '#f43f5e', class: 'series-threatscape' },
+                        'gct-field-notes': { name: 'GCT Cybersecurity Field Notes', accent: '#38bdf8', class: 'series-field-notes' },
+                        'cybersecurity-intelligence': { name: 'Cybersecurity Intelligence Series', accent: '#7c3aed', class: 'series-cybersecurity-intelligence' },
+                        'regulatory-compliance': { name: 'Cybersecurity Regulatory & Compliance Series', accent: '#f59e0b', class: 'series-regulatory-compliance' },
+                        'automation-engineering': { name: 'Automation & Engineering', accent: '#10b981', class: 'series-automation-engineering' },
+                        'research-whitepapers': { name: 'Research & Whitepapers', accent: '#c4b5fd', class: 'series-research-whitepapers' },
+                        '60abe20f-db1e-4e1c-87b0-2a163df609e4': { name: 'GCT THREATSCAPE', accent: '#f43f5e', class: 'series-threatscape' },
+                        'dac2f9ab-0df2-41e9-9dfc-0e6a79549a4c': { name: 'GCT Cybersecurity Field Notes', accent: '#38bdf8', class: 'series-field-notes' },
+                        '40580317-0092-470e-bc55-a16fc4fe23e5': { name: 'Cybersecurity Intelligence Series', accent: '#7c3aed', class: 'series-cybersecurity-intelligence' },
+                        '3c080890-182f-4d70-9295-7f3da2babdd7': { name: 'Cybersecurity Regulatory & Compliance Series', accent: '#f59e0b', class: 'series-regulatory-compliance' },
+                        '9d20122e-02dd-47c5-b67a-bf3f97930d4d': { name: 'Automation & Engineering', accent: '#10b981', class: 'series-automation-engineering' },
+                        '5bde1b8d-0d1b-449a-aaa9-b7c52ac3b517': { name: 'Research & Whitepapers', accent: '#c4b5fd', class: 'series-research-whitepapers' }
+                      };
+
+                      function escapeHtml(str) {
+                        return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+                      }
+
+                      grid.innerHTML = ordered.map(a => {
+                        const meta = SERIES_MAP[a.category_id] || SERIES_MAP[a.series] || { name: 'Technical Paper', accent: '#c4b5fd', class: 'series-research-whitepapers' };
+                        const dateStr = a.published_at ? new Date(a.published_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Nov 2026';
+
+                        return `
+                          <a href="https://blog.greycircuit.tech/article.html?slug=${encodeURIComponent(a.slug)}" class="insight-card glass-panel article-card ${meta.class} reveal-on-scroll is-revealed" data-series="${escapeHtml(a.category_id || '')}">
+                            <div>
+                              <div class="status-pill font-mono text-2xs uppercase tracking-widest" style="color: ${meta.accent}; border-color: ${meta.accent}44;">
+                                ${escapeHtml(meta.name)}
+                              </div>
+                              <h3 class="font-display">${escapeHtml(a.title)}</h3>
+                              <p>${escapeHtml(a.excerpt || '')}</p>
+                            </div>
+                            <div class="article-meta font-mono text-2xs">
+                              <span>By ${escapeHtml(a.author || 'Ajoy A G')}</span>
+                              <span>${a.reading_time_minutes || 5} min read • ${dateStr}</span>
+                            </div>
+                          </a>
+                        `;
+                      }).join('');
+                    }
+                  }
+                }
+              } catch (e) {
+                console.warn('[GCT Insights] Dynamic popular hydration error:', e);
+              }
+            }
+          }
         } else if (sec.section_key === 'sec09') {
           const emailLinks = document.querySelectorAll('a[href^="mailto:security@"]');
           emailLinks.forEach(el => {
